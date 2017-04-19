@@ -26,3 +26,9 @@ source ictf_env/bin/activate
 /usr/bin/yes | sudo pip install mysql-python
 #commandline arg for password
 sed -i '3s/.*/MYSQL_DATABASE_PASSWORD = \"'$2'\"/g' database/settings.py
+
+#import database template
+pwd
+cd database
+mysql -uroot -p$1 -e "CREATE DATABASE ctf;"
+mysql -uroot -p$1 ctf < database.sql
